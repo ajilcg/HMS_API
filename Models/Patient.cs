@@ -1,4 +1,6 @@
-﻿namespace HMS_Project.Models
+﻿using Hospital_management.Models;
+
+namespace HMS_Project.Models
 {
     public class Patient
     {
@@ -10,10 +12,11 @@
         public string Gender { get; set; }
         public string MaritalStatus { get; set; }
         public string Address { get; set; }
-        public int ContactNumber { get; set; }
+        public string ContactNumber { get; set; }
         public string City { get; set; }
         public string State { get; set; }
-        public int EmergancyContactNumber { get; set; }
+        public string EmergancyContactNumber { get; set; }
         public string MedicalHistory { get; set; }
+        ICollection<MedicalHistory> Medical { get; set; }
     }
 }

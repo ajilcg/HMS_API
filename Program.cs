@@ -23,7 +23,7 @@ namespace HMS_Project
             {
                 options.AddPolicy("AllowReactApp",
                     builder => builder
-                        .WithOrigins("http://localhost:5173") // React app address
+                        .WithOrigins("http://localhost:5176") // React app address
                         .AllowAnyMethod()
                         .AllowAnyHeader());
             });

@@ -1,4 +1,5 @@
 ﻿using HMS_Project.Models;
+using Hospital_management.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Numerics;
 
@@ -16,5 +17,7 @@ namespace HMS_Project.Data
         public DbSet<Appointment> Appointments { get; set; }
         public DbSet<Bill> Bills { get; set; }
         public DbSet<Medicine> Medicines { get; set; }
+        public DbSet<MedicalHistory> medicals { get; set; }
+
     }
 }

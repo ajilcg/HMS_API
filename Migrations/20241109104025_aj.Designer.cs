@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HMS_Project.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241108041846_uju")]
-    partial class uju
+    [Migration("20241109104025_aj")]
+    partial class aj
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -192,8 +192,9 @@ namespace HMS_Project.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ContactNumber")
-                        .HasColumnType("int");
+                    b.Property<string>("ContactNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("DateOfBirth")
                         .IsRequired()
@@ -203,8 +204,9 @@ namespace HMS_Project.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("EmergancyContactNumber")
-                        .HasColumnType("int");
+                    b.Property<string>("EmergancyContactNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -254,6 +256,28 @@ namespace HMS_Project.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("Hospital_management.Models.MedicalHistory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("MedicalDetails")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UpdatedDate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("patientId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("medicals");
                 });
 
             modelBuilder.Entity("HMS_Project.Models.Bill", b =>

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace HMS_Project.Migrations
 {
     /// <inheritdoc />
-    public partial class uju : Migration
+    public partial class initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -64,6 +64,21 @@ namespace HMS_Project.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "medicals",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    MedicalDetails = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UpdatedDate = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    patientId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_medicals", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Medicines",
                 columns: table => new
                 {
@@ -91,10 +106,10 @@ namespace HMS_Project.Migrations
                     Gender = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     MaritalStatus = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ContactNumber = table.Column<int>(type: "int", nullable: false),
+                    ContactNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     City = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     State = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    EmergancyContactNumber = table.Column<int>(type: "int", nullable: false),
+                    EmergancyContactNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     MedicalHistory = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -158,6 +173,9 @@ namespace HMS_Project.Migrations
 
             migrationBuilder.DropTable(
                 name: "Doctors");
+
+            migrationBuilder.DropTable(
+                name: "medicals");
 
             migrationBuilder.DropTable(
                 name: "Medicines");
